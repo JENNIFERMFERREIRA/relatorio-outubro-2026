@@ -142,3 +142,18 @@ h1 { font-family: var(--serif); font-size: 112px; line-height: 1.1; font-weight:
 @media (prefers-reduced-motion: reduce) {
   .active .a, .active .bar, .active .meter-fill, .active .ring-fg { animation-duration: .01s !important; animation-delay: 0s !important; }
 }
+
+/* Ritmo do mês: colunas de entregas por dia */
+.rhythm { display: grid; grid-template-columns: 1fr 300px; gap: 72px; align-items: end; }
+.cols { display: flex; align-items: flex-end; gap: 14px; height: 520px; border-bottom: 2px solid var(--line); }
+.col { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 8px; position: relative; }
+.cb { width: 100%; height: var(--h); background: linear-gradient(180deg, var(--navy-2), var(--navy)); border-radius: 6px 6px 0 0; transform: scaleY(0); transform-origin: bottom; }
+.active .cb { animation: growUp 1s var(--ease) var(--d) both; }
+@keyframes growUp { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+.col.peak .cb { background: linear-gradient(180deg, var(--gold), #8A6A3A); }
+.cv { font-size: 24px; font-weight: 600; color: var(--navy); opacity: 0; font-variant-numeric: tabular-nums; }
+.col.peak .cv { color: var(--gold-text); }
+.active .cv { animation: fadeIn .6s var(--ease) var(--d) both; }
+.cd { position: absolute; bottom: -40px; font-size: 24px; color: var(--muted); }
+.side { display: flex; flex-direction: column; gap: 36px; align-items: center; text-align: center; }
+.rhythm .ring { position: relative; right: auto; top: auto; width: 260px; height: 260px; }
